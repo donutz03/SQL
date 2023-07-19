@@ -18,3 +18,5 @@ create table EMPLOYEES (
   constraint fk_employees_deptno foreign key (deptno)
       references DEPARTMENTS (deptno)
   );
+
+// creating triggers liveql
