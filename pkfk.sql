@@ -25,3 +25,51 @@ CREATE TABLE Orders (
   CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
   REFERENCES Persons(PersonID)
   );
+
+//altr
+
+ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+// 
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+
+//drop fkj
+
+ALTER TABLE Orders
+DROP FOREIGN KEY FK_PersonOrder;
+
+//sqlrv /rc/msa
+
+ALTER TABLE Orders
+DROP CONSTRAINT FK_PersonOrder;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
