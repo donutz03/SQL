@@ -1,4 +1,4 @@
-//msql
+//msq
 CREATE TABLE Orders (
   OrderID int NOT NULL,
   OrderNumber int NOT NULL,
