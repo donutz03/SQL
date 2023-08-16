@@ -1,0 +1,24 @@
+1. Baza de date este un ansamblu de date:
+-organizat, structurat
+- accesibil mai multor utilizatori in timp util
+2. In modelul relational pentru baze de date:
+-legaturile dintre tabele se descriu in LDD
+- exista notiunea de tuplu
+- proiectia, jonctiunea si intersectia sunt operatori din algebra relationala
+3. Care dintre urmatoarele activitati nu contribuie la asigurarea securitatii datelor?Raspuns:
+-salvarea si restaurarea datelor
+-definirea restrictiilor de integritate;
+4.implementarea tabelelor virtuale(views) in sistemul oracle asigura:
+-reprezentarea schemelor externe ale bazei de date
+- viziunea utilizatorilor asupra bazei de date
+- securitatea datelor
+5. normalizarea relatiilor din cadrul bazelor de date relationale ofera posibilitatea:
+- inlaturarii anomaliilor de stergere a datelor
+- inlaturarii anomaliilor de modificare a datelor
+6. se considera tabela: angajati(number(3)), nume_angajat(varchar2(35)), data angajarii date, functie varchar2(15),
+salariu number(5), id_departament number(3). Care din urmatoarele cereri SQL-Oracle va returna o valoare numerica?
+rasp:
+- select sysdate - data_angajarii from angajati;
+- select round(months_between(sysdate, data_angajarii)) from angajati;
+seelct add_month(data_angajarii, 20)-sysdate from angajati;
+7. 
