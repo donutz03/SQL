@@ -1,0 +1,140 @@
+organiz datelor
+definire
+evolutie
+org datelor in fisiere
+tipuri de fisiere
+org datelor in bd
+tipuri de bd
+sist de bd
+
+Definire
+org. datelor
+  -definirea, structurarea ordonarea si gruparea datelor in colectii de date omogene
+-stabilirea legaturilor intre date
+- definirea restrictiilor de integritate
+- definirea schemei conceptuale, logice si fizice
+- reprezentarea datelor pe un suport informational etc
+
+Obiectivele organizarii datelor
+-acces rapid la date
+- spatiu de memorie ocupat cat mai mic
+- unicitatea datelor
+-existenta tuturor legaturilor
+- integritatea datelor
+-securitatea datelor
+-flexibilitatea datelor
+
+Evolutie
+Etape(1)/Aspecte: Mod de organizare a datelor(2) Structura de date(3) Mod de prelucrare(4) Redundanta(5) Software utilizat(6)
+1. inainte de 1965; fisiere secventiale ;logica coincide cu fizica; pe loturi (batch); mare, necontrolat; operatii simple de I/E (limbaj de asamblare si universal)
+2. anii '60. Fisiere secventiale, indexate, directe. Logia si fizica. Loturi, on-line. Mare, necontrolat. Chei simple de acces(limbaje universale)
+3. anii '70 Baze de date arborsecente, retea. Logica, fizica, conceptuala, Loturi, conventional; scade, controlat; Chei multiple de acces, legaturi intre date, protectie(SGBD)
+4. sfarsitul anilor '70 pana acum; Baze de date relationale; Logica, fizica, conceptuala; Conventional, interactive; Mica, controlat; Limbaje de regasire, protectie, concurenta(SGBD)
+5. Sfarsitul anilor '80 pana acum; Baze de date orientate obiect; Logica, fizica, conceptuala; Interactiv; Minima, controlat; Limbaje din programarea OO (SGBD)
+
+  Evolutie
+  -fisiere cu org secv. fisiere secv indexate. fis cu org relativa. fis. cu org. directa. fis. partitionate.
+  fis. multiindexate. fis. inverse. fis. integrate
+  bd arborescente. bd retea. bd relationale. bdoo
+  bd multimedia. bd spatiale. bd internet. bd mobile
+bdd
+deosite de date. bd multidimensionale
+
+concepte de baza: entitate, membru, atribut, valoare
+  lumea reala                          plan informational => entitate
+
+colectie de date(fisa prod., cod, denumire, pret, stoc la zi)
+stoc la zi = atribut
+pret = 12; 12 =valoare
+toate fisa produsului = membru
+
+corespondenta
+entitate = produse
+membru = un produs
+atribute => <CODP, DENP, UM>
+valori => B203, ARIEL
+
+o entitate este descrisa prin:
+numele entitatii
+structura sa logica
+
+structura logica
+"descrierea proprietatilor informationale ale atributelor unei entitati"
+  entitatea produse
+nr atribut tip lungimme cheie
+1 cod_p text 4 Y
+2 den_p text 20 -
+3 um text 4 -
+4 pret numeric integer -
+
+Categorii de atribute
+atribute de identificare - coduri de regasire
+date calendaristice
+cantitativ - valorice
+atribute descriptive
+coduri ptr caracteristici tehnice
+coduri ptr sortari, grupari, clasificari
+
+  Memorarea entitatilor pe disc(structura fizica)
+entitate => fisier/file
+membru => inregistrare/record
+atribut => camp/field
+
+Relatia entitate - fisier => structura logica                     => fisier produse
+  fisa produsului                 field name type size               1 1 0 0 0 1 1 1 0 0 0 0 1 1 1 0 1
+        denumire_________          den_prod char 20                  0 0 0 0 1 1 1 1 0 0 1 1 0 0 EOF
+cod______um______                    cod_prod int 5
+pret-catalog_____                    um char 4
+                                     pret int 4
+
+
+
+Organizarea datelor in fisiere clasice
+Fisierele
+Fisierul reprezinta o colectie organizata de date, omogena dpdv al continutului si al prelucrarii, stocata pe un suport de
+memorie externa. 
+Datele continute intr-un fisier sunt structurate in inregistrari logice, dispuse intr-o anumita ordine
+Organizarea fizica este o organizare interna, fiid supusa rigorilor sistemului de calcul avut la dispozitie
+
+Gruparea inregistrarilor logice in inregistrari fizice
+... L1 | L2           L3          L4       ........
+  Inregistrari logice
+sageata in jos |
+...    F1                F2             ........
+  Inregistrari fizice
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
