@@ -103,18 +103,73 @@ sageata in jos |
 ...    F1                F2             ........
   Inregistrari fizice
 
+Fisier de date, memorie, program de prelucrare
+- se aduc pe rand blocurile de inregistrari fizice in memorie interna, intr-un spatiu de asteptare (buffer de intrare/iesire) la dispozitia programului;
+- fiecare inregistrare fizica este descompusa in inregistrari logice;
+- inregistrarile logice sunt prelucrate pe rand de program, iar rezultatele sunt furnizate la iesire.
+
+Memorie externa                     Memoria interna
 
 
+Fisier                                F1 F2 ... Fn
+                      <=>              Buffer intrare/iesire zona de date
+Inreg. fizice                          Zona program
+Figura 2.10 Fluxul informatiilor fisier de date, memorie, program de prelucrare
+Fluxul informatiilor fisier de date - memorie - program de prelucrare este prezentat in figura 2.10
 
-  
+Caracteristici ale unui fisier
+- de natura externa:
+nume si extensie fisier
+caract suportului de memorie
+atribute (read only, hiddedn, system, archive)
+data crearii, a ultimei accesari si modificari
+lungimea
+- de natura interna:
+continutul informational (fisier de date, fisier program, fisier de comenzi, fisier text, fisier grafic etc)
+- modul de organizare a continutului (secvential, relativ, secvential-indexat)
+- modul de acces la inregistrari (secvential, direct).
 
+Moduri de acces
+a) SECVENTIAL
+b) DIRECT
+C) DINAMIC
 
+a) ACCESUL SECVENTIAL
+- prelucrarea inregistrarilor
+citirea
+scrierea
+se face la rand, una dupa alta
+- viteza redusa
+- specific suporturilor neadresabile (banda magnetica)
 
+b) ACCESUL DIRECT
+- prelucrarea inregistrarii se face independent de relatia cu celelalte inregistrari din fisier
+- identifica direct o inregistrare pe baza adresei fizice
 
+ADRESA FIZICA
+Home address
+CC HH RR
+cylinder head(track) record
 
+c) ACCESUL DINAMIC
+- imbina modelele anterioare
+- cautarea se face in 2 etape:
+pozitionarea directa pe o anumita inregistrare
+consultarea secventiala a inregistrarilor ulterioare
 
+Metode de organizare in fisiere clasice
+1. organizarea secventiala
+2. organizarea indexata
+3. organizarea relativa
+4. organizarea directa
 
+1. Org. secventiala
+- stocare in ordinea cronologica
+HDR | Rec1 Reci Recn | EOF
+- Accesare prin parcurgere secventiala a inregistrarilor
+- Marcajul EOF - End of File
 
+2. Org. Indexata
 
 
 
