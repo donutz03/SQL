@@ -29,6 +29,77 @@ USER SYS IDENTIFIED BY pz6r58
 USER SYSTEM IDENTIFIED BY y1tz5p
 LOGFILE GROUP 1
 ('/u01/oracle/oradata/mynewdb/redo01.log') SIZE 100M,
+MAXLOGFILES 5
+MAXLOGMEMBERS 5
+MAXLOGHISTORY 1
+MAXDATAFILES 100
+MAXINSTANCES 1
+
+character set us7ascii
+EXTENT MANAGEMENT LOCAL
+
+bd nou creata are doar 2 util. valizi SYS si SYSTEM cu parolele specificate la instalare
+
+Se pot defini noi util. pt bd din Enterprise Manager, accesand link-ul Administration-> Users
+
+
+pornire instanta fara montare BD => advanced options -> start the database
+
+pornirea instantei si montarea bd fiind inchisa se ex at. cand:
+- se redenumesc fis. de date
+se adauga, sterg sau redenumesc fis. redo log
+se recupereaza integral bd
+
+startup + recover => procesul de recuperare
+
+pt oprire, shutdown din enterprise manager; se cer si datele de autentificare a utilizatorului
+sistemului de operare
+
+oprirea se face in 2 moduri:
+modul normal, in care oprirea e reversul pornirii normale. oprirea unei bd in conditii normale presupune
+executarea de catre Oracle a urm. activitati: - oprirea conectarilor la bd; - asteptarea pana
+cand toti utilizatorii se deconecteaza
+La urm. pornire a bd nu se pornesc procedurile de recuperare
+ex: shutdown normal
+
+modul anormal se executa in 3 feluri astfel:
+A. oprirea imediata a BD, care se ex. at. cand stim ca se va opri curentul. instr. curenta se termina imd;
+orice tranz. nefinalizata este anulata.
+
+toti util. conectati sunt decon. imd;
+oprirea: startup/shutdown : advanced shutdown options -> immediate
+
+B. oprirea tranzactionala -> cand vrem sa afectam cati mai putini clienti
+
+dupa lansarea acestei opriri oracle executa:
+niciun client nu se mai poate conecta la bd
+niciun client nu mai poate initia tranzactii
+se ast. term. normala sau anormala a tranzactiilor
+dupa exec. acestor act. oprirea e la fel ca cea imd. doar ca se alege opt. transactional.
+
+
+C. anularea instantei, ce se executa in situatiile:
+bd fct anormal si niciuna din met. de oprire nu fct.
+trb sa oprim bd pt ca urmeaza pana de curent
+adminul experimenteaza tehnici de oprire a bd
+
+se executa folosind optiunea abort
+
+oracle executa: terminarea opt. sql aflate in lucru
+tranzactiile nefinalizate nu mai sunt aduse la starea anterioara momentului inceperii acestora (nu
+mai sunt anulate prin rollback) iar toti util. sunt deconectati imediat.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
