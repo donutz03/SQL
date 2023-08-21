@@ -1,0 +1,104 @@
+srv oracle
+
+spatii pt tabele(tablespaces)
+- unitati logice de mem. in care e imp o bd
+
+schema obiectelor bd
+cuprinde:tabele, vederi(view), secv, unit. de progrm, sinonime, indecsi si clusteri
+
+tabelele sunt unitati de baza in mem. datelor unei BD. contin randuri si coloane. in oracle avem si
+tabele partajate
+tabelele derivate sunt proiectii alte tabelelor de baza pt utilizatori aka sunt proiectii ale tabelelor
+de baza
+toate operatiile efectuate asupra tabelelor derivate afecteaza tabelele de baza
+
+coloanele de legatura ale tabelelor intr-un cluster se numesc chei cluster (cluster key)
+
+structura fizica a bazei de date
+- e definita de un set de fisiere specifice sist. de operare pe care rezida sgbd oracle, folosite pt 
+memorarea structurilor logice ale bd si pt pastrarea unor info tehnice de control. 
+fisiere de date: data files, 
+fisiere redo log (redo log files)
+fisiere de control: (control files)
+
+fis de date contin datele unei bd-> tabele, vederi, secvente, proceduri memorate, sinonime, indecsi, clustere si link-uri de baza de date
+fis. de date au urm caract: un fisier de date poate apartine unei singure bd, pot fi extinse automat in anumite momente specifice ale fct. bd, unul sau mai multe fis. de date pot fi memorate intr-un spatiu pt. tabele
+
+fis. redo log. 
+- sunt fol. pt mem. tuturor sch. de date produse, a.i. daca se intampla o cadere de curent sa se previna distrugerea datelor
+- se pot folosi simultan mai multe fis. de acest fel care sa rezide pe discuri diferite
+
+fis. de control (control files)
+sunt fol. pt memorarea info. necesare pt controlul structurii fizice a unei bd. Contin: numele bd, numele si locatiile fis. de date, data crearii bd
+
+instanta oracle - e combo intre struct. de mem. SGA si PGA si procesele ORACLE de baza active
+in mom. pornirii unei bd.
+struct. de mem. interna sunt fol. pt executarea unor act. oracle specifice: mem. progr care vor fi exec. precum si datele ce vor fi util. de acestea.
+
+SGA = system global area
+-este o regiune partajabila de mem. care cont. datele si info. necesare unei instante oracle.
+contine:
+-database buffer cache - cu blocurile cele mai recent util. pt a reduce util. discului
+-redo log buffer; date despre blocurile modif
+-shared pool - pt prelucrarea instr. sql
+-cursorii (statement handles or cursores) - fol. pt manip. instr. unui limbaj gazda fol. facilitatea Oracle call interface
+PGA = program global area - contine datele si info. de control ale unui proces
+
+Procesul oracle - mecanism al SO care poate executa o serie de pasi
+-are propria zona de mem. in care se exec.
+Un srv. Oracle are 2 tipuri de procese: procese util; procese Oracle
+
+Proc. utilizator (user process) este creat si mentinut pt a executa codul de program aferent unui anumit limbaj (C++) sau un produs Oracle (Oracle tool), SQL *Forms, SQL *Graphics etc
+
+procese oracle
+sunt de 2 feluri: server si background
+proc. server sunt util. de oracle pt a prelucra cererile proceselor utilizator. 
+proc serve dedicate, cu un singur proces utilizator si servere multi-prelucrare
+(multi-threaded server configuration)
+
+procesele background:
+database writer (DBWR) - scrie datele modif. in bd
+log writer (LGWR) - scrie inreg. redo log pe disc
+checkpoint(ckpt) scrie inreg checkpoint la timpul potrivit
+system monitor(smon) executa recuperarea unei instante la mom. pornirii, colecteaza spatiul liber
+etc
+process monitor (PMON) recupereaza procesele util. daca acestea cad accidental.
+archiver(ARCH) copiaza in mod online fis. Redo Log in fis de arhiva atunci cand acestea se umplu cu date
+
+
+prin intermediul listener aplicatia client ia legatura cu aplicatia server
+bufferul retine instructiuni
+
+
+
+dictionarul contine schema nu poate fi editat nici macar de utilizatorul SYS
+
+singura tabela care face exceptie modificarilor din DD este tabela SYS.AUDIS
+
+
+vederile DD sunt prefixate cu USER (info despre obiectele utilizatorilor), 
+ALL (info despre toate obiectele din bd la care un util. are acces) sau DBA (dau info despre
+toate bd)
+
+
+administrator = utilizatorul SYS ; poate accesa tabele speciale precum V_$ si sinonimele lor
+cu V$
+
+
+exemple
+SELECT object_name, object_type FROM user_objects;
+SELECT owner, object_name, object_type FROM all_objects;
+SELECT owner, object_name, object_type FROM sys.dba_objects;
+
+
+
+
+
+
+
+
+
+
+
+
+
