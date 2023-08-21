@@ -170,7 +170,58 @@ HDR | Rec1 Reci Recn | EOF
 - Marcajul EOF - End of File
 
 2. Org. Indexata
+se stocheaza inreg. ordonate asc. dupa o cheie de acces unica asociata inreg. la create
 
+{ ADRESA / CHEIE }
+
+{ RECORD / PRIMARY KEY }
+
+PERMITE ACCES SECVENTIAL SI ACCES DIRECT
+
+3. org. relativa
+conceptul "record number" (0..n) = numarul articolului in fisier
+permite acc secv si direct
+4. org directa
+
+fisiere partitionate
+in cadrul unei partitii inregistrarile sunt organizate secvential
+
+fisiere multiindexate
+util. mai multe chei, spatiu ocupat  e mai mare
+se util. pt fisiere ce necesita regasiri multicriteriale
+
+fis. inverse
+fis invers este construit din cel de baza si are org. relativa. e fisierul prin intermediul
+caruia se cauta
+necesita de 3,5 ori mai mult spatiu decat fis de baza
+
+fis. integrate = fis. cu legaturi
+
+structura e in dictionar iar datele asoc. structurii sunt memorate in fis. separate
+intre fis. de date se pot forma legaturi
+
+2. bd, notiuni introductive
+
+codasyl = conference on data systems, ideea de dictionar
+contributia lui codd = modelul relational bd
+
+bd = colectii de date corelate, org. ca sa satisfaca nevoile organizatiei; defineste o structura si o leg. intre date
+
+bd: entitati ->fam. de caract. -> caract -> domenii de valori
+colectie de date(entitate) = fam. de caract cu o anumita proprietate/predicat
+fam de caract = mai multe caract care se refera la ceva/entitate
+caract. = o proprietate
+dom. de valori = mult valorilor pos. pt o caract.
+
+bd -> org conceptual, logic, fizic; coerent; structurat cf unui model, redundanta minima datorita modelului implementat, accesibila multor util. simultan
+
+codd: relational
+forma normala bd: BCNF (boyce codd normal form)
+13 reguli pt bd relationalr
+
+nivelul logic = viziunea programatorului (pt descriere & manipul. date); struct. externa/logica
+nivel conceptual = viz. admin. asupra bd) -> model de date/schema conceptuala
+niv. fizic = ing. de sistem -> struct. interna/fizica
 
 
 
