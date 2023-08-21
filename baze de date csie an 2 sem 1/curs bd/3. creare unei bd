@@ -1,0 +1,52 @@
+prin Database Configuration Assistant (DBCA) se creeaza:
+data files
+control files
+redo log
+tabela de spatiu system si segmentul rollback system
+dictionarul de date
+utilizatori SYS si SYSTEM
+setul de caractere care va fi folosit la memorarea datelor in bd
+monteaza si deschide bd pt util.
+
+p3. se porneste utilitarul enterprise manager si se conecteaza la oracle ca administrator
+
+DBCA (database config assistant) permite:
+creare bd, stergerea bd, config bd existnta si lucrul cu sabloane
+
+data warehouse optimizeaza noua bd pt citire frecv. de date
+general purpose creeaza o bd de uz general
+transaction processing optimizeaza noua bd pt tranzactii frecvente
+
+...
+se introduce parola sau se seteaza o parola noua
+
+modul de stocare a datelor ales este file system pentru a stoca datele in fisiere
+la final se creeaza bd si va fi afisata pe ecran adresa la care se va putea administra cu ajutorul
+enterprise manager
+
+CREATE DATABASE mynewdb
+USER SYS IDENTIFIED BY pz6r58
+USER SYSTEM IDENTIFIED BY y1tz5p
+LOGFILE GROUP 1
+('/u01/oracle/oradata/mynewdb/redo01.log') SIZE 100M,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
