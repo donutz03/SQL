@@ -79,6 +79,61 @@ constraint pk_codd primary key (codd),
 constraint fk_codt foreign key (codt) references tranzactii (codt)
 );
 
+CREATE TABLE proddoc
+(
+codd number(5),
+codp varchar2(5),
+um varchar2(5),
+cat number(5),
+constraint pk_coddp primary key
+(cadd,codp)
+);
+
+Manipularea datelor
+-fct de manipulare e cea mai complexa; se face cu aj. limbajului de manipulare a datelor (LMD)
+- LMD efectueaza incarcarea, actualizarea, prelucrarea si regasirea datelor
+Actualizarea consta in ops. de adaugare, modif si stergere inregistrari. 
+Prelucrarea consta in ops. de selectie, ordonare, interclasare(compunere) si ventilare
+(descompunere). 
+Regasirea(interogarea) consta in operatii de vizualizare (punctuale, liste, rapoarte, grafice,
+imagini, sunet, video).
+
+Ex. INCARCARE: Sa se introduca in tabela Pontaj datele pentru noul angajat:
+SQL > PROMPT
+INSERT INTO Pontaj
+(codang, luna, zilelucr, orezi, zileco, zilecm, orelucrate)
+VALUES
+('&CodAngajat, '&LunaPontaj', '&ZileLucr', '&ZileLucr', '&OrePeZi',
+'&ZileConOdihna','&ZileConMed',' &OreLucrEfectiv');
+
+Ex. ACTUALIZARE: Adaugati tabelei Proddoc, Restrictia de validare (cand >= 50)
+SQL > PROMPT
+
+ALTER TABLE proddoc ADD
+(CONSTRAINT ck_cand CHECK (cant>=50));
+
+Ex. PRELUCRARE: Sa se calc. si afis. val. tot. pt. fiecare doc. din tabela doc
+SQL > UPDATE documente D
+SET valoare = 
+(
+SELECT SUM (cant*pret) valoare FROM proddoc PD, 
+produse P 
+WHERE P.codp=PD.codp AND D.codd=PD.CODD
+GROUP BY D.codd
+);
+
+Ex. VIZUALIZARE
+SELECT codd
+
+
+
+
+
+
+
+
+
+
 
 
 
