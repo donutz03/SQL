@@ -1,0 +1,93 @@
+sgbd a devenit mai accesibil prin limbaje procedurale si neprocedurale
+sgbd e un ansamblu complex de programe ce asigura interfata intre o bd si utilizatorii acesteia
+sgbd/dbms 
+
+Orice organizare a datelor in mem. externa in colectii de date care nu are un sgbd asociat nu conduce la un SBD ci la fisiere
+sau sisteme de fisiere prelucrate cu programe
+
+minim un sgbd contine
+- un model de date pt bd
+- un limbaj de programare si interfete/instrumente pt gestionarea optima a datelor
+
+roluri sgbd
+- defineste si descrie bd
+- incarca/valideaza datele
+- realizeaza accesul pt operatii ca interogarea, consulatarea, actualizarea, editarea si situatii de iesire
+- intretine bd prin editoare, utilitare - shells, navigatoare, convertoare etc
+- protejeaza bd sub aspectul securitatii si integritatii datelor
+sgbd relationale: oracle, informix, db2, visual foxpro, access
+sgbd oo: gemstone, o2, jasmine
+
+limbaje de descriere a datelor(ldd)
+limbaje de manipulare a datelor(lmd)
+limbaje de regasire neprocedurale (sql)
+
+caracteristici sgbd:
+- imbunatatirea acc. la date prin acces dupa mai multe chei, acces concurent, cresterea securitatii datelor
+- utilizarea sgbd-urilor anterioare impreuna cu noile generatii
+
+
+functiile sgbd: manipulare, utilizare, descriere, administrare bd;
+
+LDD e foarte important. Exemplu descriere:
+PROMPT crearea tabelelor
+DROP TABLE cleinti CASCADE CONSTRAINTS;
+DROP TABLE furnizori CASCADE CONSTRAINTS;
+DROP TABLE produse CASCADE CONSTRAINTS;
+DROP TABLE tranzactii CASCADE CONSTRAINTS;
+DROP TABLE documente CASCADE CONSTRAINTS;
+DROP TABLE proddoc CASCADE CONSTRAINTS;
+CREATE TABLE clienti
+(
+codc varchar2 (5),
+denc varchar2 (30),
+adr varchar2 (30),
+loc varchar2 (20),
+constraint pk_codc primary key (codc)
+);
+CREATE TABLE furnizori
+(
+codf varchar2 (5),
+denf varchar2 (30),
+adr varchar2 (30),
+loc varchar2 (20),
+constraint pk_codf primary key (codf)
+);
+CREATE TABLE tranzactii
+(
+codt varchar2 (5),
+dent varchar2 (1),
+constraint nn_dent not null
+constraint ck_dent check (upper (dent) in('L','R')),
+dataora date default sysdate,
+codf varchar2 (5),
+codc varchar2 (5),
+constraint pk_codt primary key (codt),
+constraint fk_codf foreign key (codf) references furnizori (codf),
+constraint fk_codc foreign key (codc) references clienti (codc)
+);
+CREATE TABLE documente
+(
+codd number (5)
+constraint ck_codd check (codd > 0),
+dend varchar2 (4)
+constraint nn_dend not null
+constraint ck_dend check (upper (dend) in ('FACT', 'AVIZ', 'NIR', 'CHIT')),
+data date default sysdate,
+codt varchar2 (5),
+constraint pk_codd primary key (codd),
+constraint fk_codt foreign key (codt) references tranzactii (codt)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
