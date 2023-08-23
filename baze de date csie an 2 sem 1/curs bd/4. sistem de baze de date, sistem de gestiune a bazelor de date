@@ -162,23 +162,60 @@ Moduri de autentificare a DBA:
 Administrarea bd cu ajutorul enterprise manager. 
 Pentru a deschide pagina Enterprise Manager se foloseste un browser web
 
+Tipologia SGBD-urilor
+1) dupa sistemele de calcul pe care le implementeaza
+pt calc. mari se folosesc bd complexe si foarte mari (Oracle, DB2, IMS)
+pt minicalc. se fol. bd de complexe si mari dar si mici si medii (ex foxpro, oracle, access)
+Tendinta e ca SGBD sa fie compatibil cu cat mai multe SO. (se real. aplicatii de tip sisteme deschise, lucru de care tine
+cont si noua generatie, a treia, de SGBD-uri).
 
+2) dupa limbajul de programare utilizat
+SGBD cu limbaj gazda are LMD-ul bazat pe un limbaj de nivelintalt universal (C, java, pascal, cobol) sau o extensie/adaptare
+a unui astfel de limbaj.
+Avantaje: proceduri/interfete om-masina f bune, se utilizeaza toate avantajele programarii procedurale
+Dezavatajul major e ca formularea cererilor de regasire se face mai greu, de multe ori intr-un mod inaccesibil utilizatorilor
+finali.
+SGBD cu limbaj propriu(autonom) e cel care are un LMD specific. Acest LMD este procedural si are marele avantaj ca permite 
+implementarea tuturor facilitatilor complexe oferite de SGBD. Se realizeaza in plus si acces usor si optimizat la bd, pe
+langa procedurile complexe si interfetele puternice pe care le ofera. 
+Dezavantaj: un astfel de limbaj poate fi utilizat doar de specialistii in informatica (exemplu limbajul din Visual FoxPro).
+Tendinta actuala este ca SGBD-ul sa aiba implementat pe langa un limbaj procedural si un limbaj de regasire neprocedural care 
+sa permita formularea de cereri de regasire usor de catre toti utilizatorii bazei de date.
+Majoritatea SGBD au implementat pt microcalculatoare limbajul SQL care e si standardizat international.
 
+3) dupa modelul logic de date implementat.
+SGBD ierarhice sunt cele care implementeaza modelul de date arborescent (ierarhic) si au fost primele. Sunt bune pt domenii
+precise din lumea reala, precum tehnologia constructiei de masini, dar au limite in alte domenii (exemplu: IMS).
+SGBD retea sunt cele care implementeaza modelul de date retea si care au eliminat multe din limitele celor ierarhice. Ele au
+o larga aplicabilitate pt numeroase probleme din lumea reala, dar sunt dificil de utilizat datorita complexitatii ridicate (
+exemplu IDMS).
 
+SGBD relationale implementeaza modelul de date relational si au aplicabilitate in majoritatea domeniilor din lumea reala. Pot 
+fi folosite de o gama larga de utilizatori datorita facilitatilor oferite (generatoare, limbaj neprocedural etc). Exemple: 
+Oracle, Visual FoxPro, Paradox, Acces, Informix, Progress
+SGBD orientate obiect sunt cele care implementeaza modelul de date orientat obiect. Ele se preteaza bine la problemele foarte 
+mari, de complexitate ridicata, precum si pentru tipurile noi de aplicatii (proiectarea asistata, multimedia, sisteme deschise)
+Exemple: O2, Orion, Jasmin.
 
+Note. 
+Majoritatea SGBD-urilor actuale au implementate, in ultimele versiuni, facilitati de tratare a obiectelor. Exemple: SQL
+Server, DB2, Oracle, Access, Visual FoxPro. Tipurile de mai sus de SGBD-uri, avand drept criteriu modelul de date implemen-
+tat, sunt de baza (fundamentale). 
+Pornind de la acestea, prin extensia tehnologiei informatiec, exista si alte tipuri de SGBD-uri: deductive, distribuite,
+multimedia, spatiale, etc.
+Exista, de asemenea, tipuri de SGBD-uri (ca de exemplu cele functionale) care se bazeaza pe alte modele de date decat cele
+de mai sus. Acestea au insa o raspandire mai restransa avand performante doar pentru domenii bine precizate.
 
+4) Dupa localizarea bazei de date
+SGBD centralizate sunt cele care gestioneaza datele amplasate intr-o singura baza de date centrala. La acestea au acces toti
+utilizatorii autorizati pentru a efectua diferite operatii de manipulare a datelor. Toate calculatoarele care nu sunt legate 
+in retea si lucreaza cu baze de date au instalat un SGBD centralizat. Tot un SGBD centralizat, dar cu facilitati de lucru
+in retea trebuie instalat si in retelele de calculatoare care au plasata baza de date pe un singur calculator (de obicei pe
+server). exemplu: visual foxpro, access.
 
-
-
-
-
-
-
-
-
-
-
-
+SGBD distribuite sunt cele care gestioneaza datele amplasate pe mai multe calculatoare dintr-o retea tratandu-le ca un tot 
+unitar. Complexitatea acestor SGBD-uri este ridicata, avand componente speciale pentru realizarea conexiunilor si tratarea
+distribuita a datelor (exemplu: Oracle, DB2, Informix).
 
 
 
