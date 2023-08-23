@@ -217,6 +217,138 @@ SGBD distribuite sunt cele care gestioneaza datele amplasate pe mai multe calcul
 unitar. Complexitatea acestor SGBD-uri este ridicata, avand componente speciale pentru realizarea conexiunilor si tratarea
 distribuita a datelor (exemplu: Oracle, DB2, Informix).
 
+ARHITECTURI DE SGBD
+- exista 2 arhitecturi de referinta: cea propusa de grupul CODASYL si cea ANSI/SPARC
+In ultimul timp, arhitectura de SGBD a evoluat spre o config. cu 3 categorii de componente 
+(nucleul, interfata, instrumentele(, situatie intalnita la ultimele versiuni de sisteme comerciale.
+O alta tendinta este data de arhitecturile distribuite si orientate obiect de SGBD care sunt
+tot mai des utilizate in contextul de retea de calculatoare si noile tipuri de aplicatii infor-
+matice. Arhitectura pe componente(niveluri) reflecta tendinta actuala de structurare a SGBD-urilor.
+
+
+SGBD = interfete <-> nucleu(kernel) <-> instrumente (tooklkit) <-> BD
+
+Nucleul (motorul) contine:
+- limbajul de descriere a datelor (LDD);
+- limbajul de manipulare a datelor (LMD);
+- componente obligatorii in kit-ul minim de SGBD
+Componenta este destinata analistilor, programatorilor si administratorilor BD.
+
+Interfetele sunt formate din:
+- generatoarele de diferite tipuri (de meniuri, de videoformate, de rapoarte etc)
+- elementele de CASE (Computer Aidede Software Engineering)
+- interfete cu limbaje de programare universale, interfete cu alte sisteme etc
+Componenta este destinata tuturor categoriilor de utilizatori: finali, intensivi, specialisti
+
+Instrumentele sunt formate din:
+- editoarele;
+- navigatoarele;
+- utilitarele (shells) de diferite tipuri
+- Componenta este destinata, in principal, administratorului bazei de date, dar si altor cate-
+gorii de utilizatori;
+
+Concluzii
+Arhitectura pe niveluri este simpla dar completa:
+- Arhitecturile standardizate (CODASYL si ANSI) pot fi aduse pe cele 3 niveluri
+- Noile tehnologii de bd (de exemplu tehnologia orientata obiect) au determinat aparitia unor
+noi tipuri de SGBD. Arhitecturile propuse pentru acestea pot fi adaptate pe cele 3 niveluri.
+- Noile tehnologii informatice (de exemplu multimedia, internet etc) au interferat cu tehnologia
+bd rezultand SGBD-uri derivate corespunzatoare. Pt acestea s-au propus arhitecturi care, insa, 
+pot fi adaptate la structurarea pe 3 niveluri.
+
+Componentele nucleului:
+- Comenzi de deschidere date -> Componente LDD -> (Mecanismul de Gestionare date) -> Catalog DD
+- Comenzi privilegiate -> Procesor runtime -> (Mecanismul de Gestionare date) -> Catalog DD &
+Obiect de BD
+- Cereri de date -> Procesor de cereri -> Procesor runtime -> (Mecanismul de Gestionare de Date) 
+-> Obiect de BD & Catalog DD
+Program de aplicatie -> Precompilatorul -> Componenta DML & Compilator limba gazda -> BD
+
+Functiile componentelor
+- Accesul la BD (obiecte + DD) este controlat de o componenta denumita gestionarul de date ->
+poate utiliza functii la nivel scazut oferite de SO sau poate utiliza propriile sale functii 
+de gestiune a datelor.
+- Compilatorul LDD face posibila utilizarea unor comenzi specifice de definitie si intretinere
+DD
+- Procesorul run-time executa operatii de regasire, act.
+- Procesorul de cereri trateaza cererile interactive exprimate in LMD
+- Precompilatorul prelucreaza comenzile de manipulare incluse intr-un program de aplicatie 
+scris in limbaj gazda. Aceste comenzi sunt transmise compilatorului LMD in scopul generarii
+modului pentru accesul la BD. Restul comenzilor din PA sunt prelucrate de compilatorul limbajului
+gazda. Cele doua tipuri de componente ale PA pot forma o tranzactie asupra BD.
+
+Functiile principale ale nucleului SGBD
+- organizarea fisierelor (metode de organizare, clusteri);
+- mecanisme de acces (indecsi simpli, indecsi drept arbori-B);
+- management tranzactii (controlul concurentei si consistentei datelor);
+- management DD;
+- management cererilor (optimizarea accesului );
+- protectia datelor.
+
+Advanced Database Systems
+DBA -> Comenzi specifice pentru administrare -> Evaluator la momentul executiei -> Manager
+de tranzactii si de blocuri
+DBA -> Comenzi DDL -> Compilator DDL -> Manager de tranzactii si de blocuri
+Utilizatori intensivi -> Comenzi DDL -> Compilator DDL -> Manager de tranzactii si de blocuri
+Dezvoltatori de aplicatii (programatori) -> Pachete de programe, aplicatii -> Precompilatoare
+-> Comenzi DML -> Compilator de cereri -> Plan de executie a cererii -> Evaluator la momentul
+executiei -> Manager de tranzactii si de blocuri
+Dezvoltatori de aplicatii (programatori) -> Pachete de programe, aplicatii -> Precompilatoare
+-> Compilator limba gazda -> (controleaza accesul la BD) -> Manager de tranzactii si de blocuri
+(Controleaza Accesul la BD)
+
+Compilator DDL && (Compilator de cereri -> Plan de executie a cererii -> Evaluator la momentul 
+executiei -> Manager de tranzactii si de blocuri) && Compilator limba gazda -> Manager de
+tranzactii si de blocuri => Dictionar al BD, Obiecte ale BD
+
+Functiile componentelor
+- DBA implementeaza schema si subschemele din BD intr-un DDL care este procesat de un 
+compilator DDL.
+- Utilizatorii fac cereri fie incluse in cod procedural (proceduri/functii stocate sau nu)
+care sunt compilate de compilatorul de cereri.
+- Cererea este analizata sintactic si lexical folosind informatii din dictionarul de date si
+este optimizata pentru executie eficienta (optimizator de cereri).
+- Un plan de executie este de obicei reprezentat ca un arbore de operatii (cu informatii 
+suplimentare) despre metodele de acces folosite. Planul de executie a cererii este trimis in
+momentul executiei la un evaluator
+- Pentru cereri ad-hoc aceasta analiza si evaluare se face imediat. Pt cereri incluse in 
+programe, aceasta se intampla cand cursorul asociat cererii este deschis.
+- Evaluatorul la momentule executiei este de obicei un interpretor pentru o forma a alg. rel.
+(impreuna cu metodele de acces si instr de executie a operatorilor).
+- In timp ce evalueaza cererea, aceasta componenta acceseaza BD prin componente pentru controlul
+/accesul concurent la datele din BD.
+- Se implementeaza controlul concurential, managementul tranzactiilor, metode de acces la date, 
+etc
+
+Sisteme de baze de date
+Sistemul de baza de date (SBD) = un ansamblu de elemente interconditionate care contribuie la
+realizarea si exploatarea unei aplicatii cu baze de date
+Arhitectura unui SBD = prezentarea grafica a elementelor unui SBD si a legaturilor dintre ele.
+
+SBD - arhitectura pe componente
+Arhitectura pe componente da o imagine asupra tuturor elementelor consitutive ale unui SBD si 
+a interdependentei dintre ele
+Date <-> Software <-> Elemente Auxiliare, Utilizatori
+Din aceasta arhitectura rezulta componentele unui SBD:
+1. Datele organizate intr-o baza de date care contine:
+- colectiile de date propriu-zise;
+- dictionarul de date;
+- fisierele anexe;
+
+2. Software-ul aferent realizarii si exploatarii bazei de date, care contine:
+- sistemul de gestiune a bazelor de date(SGBD)
+- programele de aplicatie
+3. Elementele auxiliare sunt componente care contribuie la realizarea si functionarea 
+intregului SBD:
+- set de proceduri automate(rutine) si manuale
+- reglementari legale si administrative
+- mijloace hardware utilizate
+- personalul implicat pe categorii de utilizatori
+
+
+
+
+
 
 
 
