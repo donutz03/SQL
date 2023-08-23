@@ -123,7 +123,62 @@ GROUP BY D.codd
 );
 
 Ex. VIZUALIZARE
-SELECT codd
+SELECT codd, valoare FROM documente
+WHERE valoare IS NOT NULL;
+
+rez:
+CODD      VALOARE
+....      .....
+20123        2.250E+09
+10123        1.390E+09
+
+MANIPULAREA DATELOR
+LMD, fct. de manip. a datelor de cea mai fol. si cea mai bine suportata de SGBD
+SGBD-ul manip. datele in mod eficient din generatie in generatie
+
+LMD cu limbaj gazda (cobol, pascal, c), se imbina cu oracle
+
+limbajele relationale (sql) au cele mai bune performante
+
+UTILIZAREA BD
+- fct de utilizare asigura interfetele necesare pt comunicarea tuturor utilizatorilor cu bd. SGBD trb sa asigure facilitati
+pentru: neinformaticieni, specialisti (informaticieni), administratorul. Neinformaticienii sunt principala categorie a 
+beneficiarilor de informatii. SGBD le ofera facilitati de interogare(generatoare, utilitare).
+
+Pt specialistii in info, SGBD ofera elemente de CASE (Computer Aidede Software Engineering)
+
+Administratorul BD organizeaza BD conform unei anumite metodologii, realizeaza schema conceptuala bd, coordoneaza proiecta-
+rea bazei de date. Adminul acorda conturi, parole, etc, reface bd in caz de incidente, face analize statistice.
+
+Privilegiile DBA (Database Administrator) - componenta estentiala a managementului BD
+1. cont de administrator pentru sistemul de operare
+2. Cont de administrator BD
+3. Rol de DBA
+
+Moduri de autentificare a DBA:
+1. Autentificare folosind SO
+2. Autentificare folosind fisierul de parole
+
+Administrarea bd cu ajutorul enterprise manager. 
+Pentru a deschide pagina Enterprise Manager se foloseste un browser web
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
