@@ -132,7 +132,16 @@ produce tot o inregistrare.
 Exista si operatori la nivel de multime de inregistrari care se implementeaza in LMD mult mai
 greu.
 
-
+Restrictiile de integritate ale modelului ierarhic
+- o realizare subordonat este totdeauna asociata unei singure realizari superior
+- daca un tip de inregistrare nu are realizari atunci nici tipurile de inregistrari descendente
+nu au realizari
+Nota.
+Efectele restrictiilor de integritate sunt:
+completarea operatiei de actualizare;
+daca o realizare a unui nod subordonat trebuie sa fie asociata cu mai multe realizari ale no-
+dului parinte atunci ea trebuie multiplicata (creste redundanta)
+- dau logica si coerenta modelului arborescent
 
 
 
