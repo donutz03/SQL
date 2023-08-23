@@ -4,7 +4,139 @@ Modelarea datelor + modelarea proceselor => eliminare detailii & pastrarea aspec
 Tipul modelului se stabileste dupa un set de concepte de modelare si o serie de reguli de 
 formare.
 Conceptele de modelare sunt abstractizari ale unor elemente de structura sau functionalitate ale
-sistemului informational.
+sistemului informational. Exemple de concepte utilizate in modelare: surse de date, entitate,
+flux de date, proces etc.
+Regulile de formare exprima posibilitatile de formare a modelului in raport cu interdependentele
+ce exista intre componentele modelului.
+
+Modele de date
+Def 1: Un model abstract care descrie modul in care datele sunt reprezentate si accesate
+Def 2: Reprezinta o abstractizare matematica a datelor si operatiilor care pot fi efectuate 
+asupra lor.
+
+Elemente modele de date
+- Structura de date
+- Operatorii
+- Restrictii de integritate
+
+Structura de date
+- Modalitate de stocare a informatiilor intr-un sistem informatic astfel incat acestea sa poata
+fi utilizate in mod eficient
+- Poate fi definita ca o colectie de date intre care s-au stabilit o serie de relatii care 
+conduc la un anumit mecanism de selectie si identificare a componentelor.
+- Un tip de structura de date reprezinta o multime ordonata de date intre care s-au stabilit
+anumite relatii. Acestea pot fi identificate fie prin nume, fie prin pozitia pe care o ocupa
+in cadrul structurii, conform ordinii stabilite in momentul definirii.
+
+Categorii de legaturi:
+legaturi de apartenenta a datelor la entitate 
+legaturi dintre entitatile de acelasi tip sau de tipuri diferit
+Fie 2 clase de entitati Clienti si Produse. Intre datele acestor doua clase de entitati pot
+exista urmatoarele relatii:
+- multimea de legaturi R2 intre entitatile clasei de Produse, date de faptul ca un produs poate
+intra in alcatuirea altui produs;
+- multimea de legaturi R2 intre clasele de entitati Clienti si Produse, date de faptul ca un
+client poate comanda unul sau mai multe produse, iar un produs poate fi comandat de unul sau
+mai multi clienti
+
+Categorii de legaturi:
+unare - o entitate intra in asociere cu ea insasi, iar gradul este 1;
+binare - doua entitati intra in relatie, iar gradul asocierii este 2;
+multiple - participa mai multe entitati la relatie, iar gradul asocierii este mai mare decat 2
+
+Legaturi unare
+Multimea de legaturi R2 intre entitatile clasei Produse, date de faptul ca un produs poate 
+intra in alcatuirea altui produs.
+
+Asocieri binare
+Unu la unu: denumirea unui utilaj are un singur numar de inventar si un numar de inventar este 
+asociat unei singure denumiri de utilaj
+Denumire utilaj -------------- Numar inventar
+
+Asocieri binare
+Unu la mai multi: un utilaj poate face parte dintr-o singura grupa de utilaje, o grupa de utilaje
+poate avea mai multe utilaje
+
+Utilaj >>>----------------Grupa de utilaje
+
+Asocieri binare
+Mai multi la mai multi: un utilaj este livrat la mai multi clienti, un client primeste mai multe
+utilaje
+Utilaj>>>----------<<<Clienti
+
+Asocieri Multiple 
+
+tabel istoric functii
+tabel functii
+tabel angajati
+tabel departamente
+
+Operatorii
+Actioneaza asuprea structurilor de date pentru operatii de prelucrare: actualizare, consultare,
+sortare
+Exista si operatori specifici fiecarui model de date
+Se implementeaza cu ajutorul LMD
+
+Restrictiile de integritate
+Au rolul de a pastra datele corecte, consistente si coerente in procesul de culegere, stocare,
+prelucrare, transmitere si extragere a datelor.
+Se pot descrie prin LDD, dar nu numai
+
+Tipuri de modele de date
+fundamentale: ierarhice, retea, relationale, orientate obiect
+derivate: (extinse din cele fundamentale): distribuite, spatiale, multimedia etc
+
+Modelul ierarhic
+1. Definirea structurii modelului ierarhic
+Definirea entitatilor se face prin notiunea de tip de inregistrare (clasa de entitati) care este 
+formata din caracteristici (campuri). Realizarea (instanta) unui tip de inregistrare este data
+de ansmblul valorilor pentru campurile acesteia (inregistrarea).
+
+Definirea legaturilor dintre entitati se face fizic si conduce la structura de tip ierarhic 
+(arborescent) reprezentata sub forma unei diagrame.
+
+Modelul ierarhic
+nivel 0      tip_inreg 0
+nivel 1 tip_inreg11 tip_inreg 12 tip_inreg 13
+nivel 2 tip_inreg 21 tip_ inreg 22 tip_inreg 23
+
+Caracteristici ale structurii ierarhice (arborescente)
+Fiecare nod corespunde unui tip de inregistrare si fiecare drum corespunde unei legaturi 
+(asocieri).
+Orice acces la un nod se face prin varful ierarhiei, numit radacina, pe o singura cale.
+Un nod subordonat (copil) nu poate avea decat un singur superior (parinte).
+Un superior poate avea unul sau mai multi subordonati.
+Legatura copil-parinte este doar de tip 1:1 (la o realizare copil corespuned o singura
+realizare parinte).
+Legatura parinte-copil poate fi de tip 1:1 sau 1:M.
+In structura exista un singur nod radacina si unul sau mai multe noduri dependete situate pe unul
+sau mai multe niveluri.
+O ierarhie de tipuri de inregistrari se numeste tip arbore.
+O realizare a unui tip arbore este formata dintr-o singura realizare a tipului de inregistrare 
+radacina impreuna cu o multime ordonata formata din una sau mai multe realizari ale fiecarui tip
+de inregistrare de pe nivelurile inferioare.
+Ordonarea realizarilor dintr-un arbore conduce la o secventa ierarhica.
+
+Operatorii modelului ierarhic
+- Localizarea unui arbore in BD: se localizeaza o realizare a tiplui de inregistrare radacina
+- Trecerea de la un arbore la altul in BD: se trece de la o realizare a tipului inregistrare
+radacina (secventa ierarhica) la o alta realizare a aceluiasi tip inregistrare radacina.
+- Trecerea de la o realizare (inregistrare) la alta intr-un arbore (secventa ierarhica) :
+se poate face trecerea pe acelasi nivel sau pe niveluri diferite intre tipuri de inregistrari 
+legate intre ele.
+- Actualizarea intr-un arbore : adaugarea, modificarea sau stergerea unei inregistrari. 
+Operatia este greoaie si consumatoare de resurse calculator (spatiu si timp) pentru ca antrenea-
+za automat toate inregistrarile din arbore care se inlantuie cu inregistrarea actualizata. 
+Nota. Operatorii de mai sus sunt la nivel de inregistrare-actioneaza pe o inregistrare si 
+produce tot o inregistrare.
+Exista si operatori la nivel de multime de inregistrari care se implementeaza in LMD mult mai
+greu.
+
+
+
+
+
+
 
 
 
