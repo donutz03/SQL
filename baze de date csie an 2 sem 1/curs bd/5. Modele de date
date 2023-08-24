@@ -213,15 +213,64 @@ si consumatoare de resurse calculator; reproiectarea este dificila datorita comp
 ridicate. Exemple de SGBD retea: IDMS = Integrated Databse management system, socrate
 BD retea - o multime oarecare de tipuri de inregistrari structurate pe tipuri set.
 
+Definirea structurii modelului relational
+Definirea colectiilor de date se face sub forma unor tablouri bidimensionale numite tabele sau
+relatii de date. Conceptele utilizate sunt:
+Domeniu = un ansamblu de valoric aracterizat printr-un nume. El poate fi explicit (se enumera 
+valorile posibile D1:{M, F}) sau implicit (se precizeaza proprietatile valorile D1: {a/a 
+apartine N}). TABELA/RELATIA = un subansamblu al produsului cartezian al mai multor domenii,
+caracterizat printr-un nume. ATRIBUTUL = coloana unei tabele, caracterizata printr-un nume.
+TUPLUL = linia dintr-o tabela si nu are nume. Nota. Ordinea liniilor (tupluri) si coloanelor
+(atribute) dintr-o tabela nu trebuie sa prezinte nicio importanta. SCHEMA TABELEI = numele
+tabelei, urmat intre paranteze rotunde de lista atributelor, iar pentru fiecare atribut se
+precizeaza domeniul asociat.
+CHEIA = un atribut sau un ansamblu de atribute care au rolul de a identifica un tuplu dintr-o
+tabela. Tipuri de chei: primare/alternate, simple/comune, externe.
+SCHEMA RELATIONALA = schema tabelei + cheile + restrictiile de integritate.
 
+Definirea structurii modelului relational
+Definirea legaturilor dintre entitati se face logic construind asocieri intre tabele cu 
+ajutorul unor atribute de legatura
+Legaturile se pot reprezenta sub forma unei diagrame de structura numita si schema BD.
 
+Definirea structurii modelului relational-caracteristici
+Atributele implicate in realizarea legaturilor se gasesc fie in tabelele asociate, fie in 
+tabele distincte construite special pentru legaturi. Atributul din tabela initiala se numeste
+cheie externa iar cel din tabela finala cheie primara. Legaturile posibile sunt 1:1, 1:M, M:N. 
+Potential, orice tabela se poate lega cu orice tabela, dupa orice atribute. Legaturile se sta-
+bilesc la momentul descrierii datelor (prin LDD) cu ajutorul restrictiilor de integritate.
+Practic se stabilesc si legaturi dinamice la momentule executiei.
 
+Operatorii modelului relational
+Operatori din algebra relationala: standard: selectia, proiectia, jonctiunea, reuniunea,
+diferenta, produsul cartezian, intersectia, diviziunea;
+extensii: complementarea, descompunerea (splitarea) etc.
+Operatorii algebrei relationale actioneaza la nivel de tabela in expresii relationale. Operanzii
+sunt tabele iar rezultatul este intotdeauna o tabela.
+Operatorii din calculul relational: orientati pe tuplu: conectivele (conjunctia = capul unei sa-
+geti in sus = ^ , disjunctia = capul unei sageti in jos, negatia = |), cuantificatorii
+(existenta = E in oglinda, universal = oricare ar fi = A intors);
+orientati pe domeniu: idem ca mai sus
+Pentru operatorii calcului relational operandul poate fi tuplu sau domeniu.
 
+Restrictiile de integritate ale modelului relational
+Structurale = se definesc prin compararea unor valori din tabele: cheie unica = intr-o tabela
+nu trebuie sa existe mai multe tupluri cu aceeasi valoare pentru ansamblul cheie;
+referentiala = intr-o tabela T1 care refera o tabela T2, valorile cheii externe trebuie sa
+figureze printre valorile cheii primare din T2 sau sa ia valoare NULL (neprecizat)
+entitatii = intr-o tabela, atributele din cheia primara nu trebuie sa ia valoare NULL
+Nota. Cele 3 restrictii de mai sus sunt minimale. Pe langa acestea, exista o serie de alte
+restrictii structurale care se refera la dependentele dintre dateȘ functionale, multivaloare,
+jonctiune etc. (sunt luate in considerare la tehnicile de proiectare BDR).
 
-
-
-
-
+Restrictiile de integritate ale modelului relational
+Semantice = se definesc prin comportamentul datelor si tin cont de valorile din BD: restrictia
+de domeniu = domeniul corespunzator unui atribut dintr-o tabela trebuie sa se incadreze intre
+anumite valori;
+restrictii temporare = valorile anumitor atribute se compara cu niste valori temporare (rezul-
+tate din calcule etc).
+Nota. Restrictiile semantice fiind foarte generale se gestioneaza fie la momentul descrierii 
+datelor (ex. clauza CHECK), fie in afara modelului la momentul executiei (ex. instructiunea IF).
 
 
 
