@@ -272,12 +272,81 @@ tate din calcule etc).
 Nota. Restrictiile semantice fiind foarte generale se gestioneaza fie la momentul descrierii 
 datelor (ex. clauza CHECK), fie in afara modelului la momentul executiei (ex. instructiunea IF).
 
+Caracteristicile modelului relational
+- propus de IBM, trecere la noua generatie
+- e simplu, e bazat pe teoria seturilor (ansamblurilor) si pe logica matematiac
+- pot fi reprez. toate tipurile de structuri de date de mare complexitate, din diferite domenii
+de activitate
+- implementarea modelului il face dificil de aplicat pentru noile tipuri de aplicatii (multi-
+media, internet etc).
+- nu asigura o independenta logica totala a datelor de aplicatie;
+- pentru aplciatii de volum si complexitate f mari nu mai face fata
+- poate introduce o redundanta prea mare (la proiectare prin tehnica de normalizare)
+Baza de date relationala = un ansamblu de tabele prin care se reprezinta atat datele cat si 
+legaturile dintre ele.
 
+Definirea structurii modelului orientat obiect (OO)
+Definirea obiectelor se face cu ajutorul conceptului de clasa de obiecte, care este definita
+din entitatea regasita in lumea reala. Se pune accentul atat pe date cat si pe comportamentul
+acestora, ambele incapurate in obiect. Conceptele utilizate sunt: CLASELE (TIPURILE) DE OBIECTE
+= un tip abstract de date prin care se defineste structura obiectelor (proprietatile) si compor-
+tamentul (metodele) acestora.
+OBIECTELE =o colectie de proprietati care se refera la aceeasi entitate.
+Obiectul are:
+- un nume prin care e referit;
+- un identificator unic atribuit de sistem;
+- o implementare care este privata;
+- o interfata care este publica;
+METODA = operatiile permise asupra obiectului, deci comportamentul (functionalitatea) acestuia.
+MESAJUL = cereri adresate obiectelor pentru a returna o valoare sau o stare.
+CARACTERISTICI (principii) fundamentale ale obiectelor:
+- incapsularea = descrierea obiectelor se face astfel incat nu se poate avea acces din afara 
+obiectului la datele sale;
+- polimorfismul = diferite obiecte pot raspunde diferit la aceleasi mesage;
+- mostenirea = capacitatea unui obiect de a-si deriva datele si functionalitatea din alt obiect.
 
+INSTANTA unei clase = realizarea unei clase data de valorile variabilelor aferente.
 
+Definirea structurii modelului orientat obiect (OO)
+Definirea legaturilor intre obiecte se realizeaza implicit prin modul de construire (definire) 
+al obiectelor. Tipurile de legaturi in modelul OO sunt:
+1. Ierarhice, caracterizate prin: clasa de obiecte este structura de baza a modelului, fiecare
+obiect are un identificator unic; toate obiectele sunt membri ai unei clase; clasele sunt 
+structurate in ierarhii avand caracteristica de mostenire; prin obiecte se pot defini orice
+tip de date (text, grafic, imagine, sunet, video); ansamblul claselor de obiecte structurate
+in ierarhii alcatuiesc schema BD.
+De referinta caracterizate prin: se realizeaza pe baza identificatorului unic obiect; pot fi
+de urmatoarele feluri: simple, de asociere, de compunere (tip parte-intreg), de agregare. 
+Obiectele compuse rezultate au o structura ierarhica dar nu au caracteristica de mostenire;
 
+Operatorii modelului OO
+La baza operatiilor din model stau mesajele ca unic mod de a comunica obiectele intre ele.
+Actualizarea metodelor (adaugare, modificare, stergere de metode). Actualizarea proprieta-
+tilor (adaugare, modificare, stergere de date). Actualizarea claselor (adaugare, modificare,
+stergere de clase). Realizarea legaturilor intre clase (compunere, partitionare). Actualizarea
+instantelor, prin metode care schimba starea interna a obiectului.
 
+Restrictiile de integritate ale modelului OO
+Orice obiect trebuie sa respecte restrictiile impuse la definirea clasei din care face parte
+(protocol de obiect).
+identificatorul obiectului asigura integritatea referirii la el (se atribuie si se sterge 
+automat o data cu obiectul).
+Accesul la obiecte este limitat la folosirea protocolului de mesaje definit pentru clasa din
+care face parte obiectul.
 
+Caracteristicile modelului OO
+Modelul OO marcheaza trecerea la o a treia generatie de BD. El aduce bazelor de date un plus de 
+deschidere, independenta logica a datelor de aplicatii, reutilizarea obiectelor. Modelul OO da 
+bune rezultate pt probleme foarte mari si complexe (principiile complexitatii sunt incluse in 
+model). In structura sunt acceptate toate tipurile de date cunoscute, deci se poate aplica
+pentru toate domeniile de activitate. Limitele modelului OO: nu exista un model OO unanim
+acceptat de specialisti. Exista totusi organisme internationale de standardizare - exemplu
+OMG (Object Management Group) - precum si modele OO standardizate - ODMG (Object Data Management
+Group); imaturitatea si naturaletea dezarmata a tehnologiei OO; elemente inca insuficient testa-
+te pentru SBDOO: controlul integritatii, volume foarte mari, regasirea.
+Exxemple de SGBDOO: O2(Franta), Jasmine (SUA).
+Baza de date orientata obiect = o multimem de clase de obiecte persistente in memoria externa, 
+organizata coerent is ordonata in ierarhii, partajata pentru utilizatorii concurenti.
 
 
 
