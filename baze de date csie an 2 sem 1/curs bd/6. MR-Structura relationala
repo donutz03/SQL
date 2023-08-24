@@ -12,3 +12,126 @@ Structura relationala:
 
 Domeniu
 Reprezinta un ansamblu de valori, caracterizat printr-un nume.
+Un domeniu se poate defini explicit, prin enumerarea tuturor valorilor apartinand acestuia sau
+implicit, prin precizarea proprietatilor pe care le au valorile din cadrul domeniului respectiv:
+D1 : {"F", "M"};
+D2: {x | x apartine lui n, x apartine intervalului [0, 100]}
+D3: {s | s=sir de caractere}
+
+Relatie
+Sa presupunem ca se acorda o anumita semnificatie valorilor domeniilor D1, D2, D3
+Numai unele dintre tuplurile produsului cartezian:
+D3 x D1 x D2 pot avea o semnificatie si anume cele care contin numele, sexul si varsta aceleiasi
+persoane.
+Relatia reprezinta un subansamblu al produsului cartezian al mai multor domenii, subansamblu
+caracterizat printr-un nume si care contine tupluri cu semnificatie.
+Intr-o relatie, tuplurile trebuie sa fie distincte (nu se admit duplicari).
+
+Atribut
+Pentru a diferentia coloanele care contin valori ale aceluiasi domeniu se asociaza fiecarei co-
+loane un nume distinct, ceea ce duce la aparitia notiunii de atribut.
+Atributul reprezinta coloana unei tabele de date, caracterizata printr-un nume. Numele coloanei
+(atributului) exprima, de regula, semnificatia valorilor din cadrul coloanei respective.
+Se elimina dependenta de pozitie.
+
+Schema unei relatii
+Aceasta este alcatuita din numele relatiei, urmat de lista atributelor, pentru fiecare atribut
+precizandu-se domeniul asociat. 
+R(A1:D1, ..., An:Dm)
+
+Gradul si cardinalitatea relatiei
+Gradul relatiei este dat de numarul de atribute
+Cardinalitatea unei relatii este data de numarul de tupluri existente la un moment dat
+Cardinalitatea este variabila in timp.
+
+Intensia si Extensia
+Schema unei relatii mai este cunoscuta si sub numele de intensia unei relatii, ca expresie a 
+proprietatilor comune si invariante ale tuplurilor care contin relatia.
+Spre deosebire de intensie, extensia unei relatii reprezinta ansamblul tuplurilor care compun la
+un moment dat relatia, ansamblu care este variabil in timp.
+
+Relatii de baza si Relatii derivate
+De obicei, extensia unei relatii este stocata fizic in spatiul asociat bazei de date, caz in 
+care relatia poarta numele de relatie de baza.
+Exista insa si situatii in care extensia nu este memorata in baza de date. Este cazul asa numite-
+lor relatii virtuale cunoscute si sub numele de relatii derivate sau viziuni.
+
+Relatie derivata
+Relatia virtuala nu este definita explicit ca relatiile de baza, prin ansamblul tuplurilor compo-
+nente, ci implicit pe baza altor relatii, prin intermediul unei expresii relationale. 
+Stabilirea efectiva a tuplurilor care contin relatia virutala se realizeaza prin evaluarea 
+expresiei, ori de cate ori utilizatorul invoca aceasta relatie.
+
+Tabela de date
+O reprezentare comoda a unei relatii este tabelul bidimensional (tabela de date), in care liniile
+reprezinta tuplurile, iar coloanele corespund domeniilor.
+Reprezentarea tabelara este preferata adesea altor forme de reprezentare a relatiilor, intrucat
+este usor de inteles si de utilizat.
+
+Baza de date relationala.
+O baza de date relationala (BDR) reprezinta un ansamblu de relatii (tabele) de date impreuna cu
+legaturile dintre ele.
+Relatiile sunt formate din tupluri (seturi) de date.
+Intrucat o multime nu poate contine elemente duplicate, relatia nu poate prezenta tupluri identi-
+ce.
+Intrucat tuplurile sunt unice, trebuie sa existe posibilitatea identificarii lor in mod unic in
+cadrul unei relatii.
+
+Cheia primara
+Cheia primara a unei relatii reprezinta ansamblul minimal de atribute prin care se poate identi-
+fica in mod unic orice tuplu din cadrul relatiei. Orice relatie poseda cel putin o cheie prima-
+ra. 
+Cheia poate sa fie constituita fie dintr-un singur atribut, fie din mai multe atribute din sche-
+ma relatiei respective.
+Atunci cand cheia este constituita dintr-un singur atribut poarta numele de cheie simpla, iar
+atunci cand este formata din mai multe atribute este denumita cheie compusa.
+
+Chei candidate
+Intr-o relatie pot exista mai multe combinatii de atribute cu proprietatea de identificare uni-
+ca a tuplurilor.
+Se spune in acest caz ca relatia poseda mai multe chei candidate. In aceasta situatie, se alege
+dintre cheile candidate una care sa serveaza in mod efectiv la identificarea tuplurilor si care
+va primi numele de cheie primara. 
+Restul cheilor candidate se vor numi si chei unice.
+
+Supercheie
+Cheia unei relatii trebuie sa fie minimala, in sensul ca nicio parte a sa nu trebuie sa aiba
+proprietatea de identificare unica a tuplurilor relatiei (nu trebuie sa fie la randul ei o 
+cheie).
+Un grup de atribute din cadrul unei relatii care contine o cheie a relatiei poarta numele de 
+supercheie.
+
+Cheie externa
+Modelul relational serveste la reprezentarea entitatilor din lumea reala si a asocierilor dintre
+acestea. Modelarea asocierilor dintre entitati impune recurgerea la conceptul de cheie externa. 
+O cheie externa reprezinta un atribut sau un grup de atribute dintr-o relatie R1 ale carui/
+caror valori sunt definite pe acelasi/aceleasi domeniu/domenii ca si cheia primara a unei alte
+relatii, R2 si care are rolul de a modela asocierea intre entitatile reprezentate cu ajutorul
+relatiilor R1 si R2. In acest context, R1 este denumita relatie care refera, in timp ce R2 poar-
+ta numele de relatie referita.
+
+Schema conceptuala a bazei de date
+(mai multe tabele interconectate prin chei)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
