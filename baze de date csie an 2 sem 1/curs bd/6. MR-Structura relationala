@@ -1,3 +1,14 @@
 Structura relationala:
 - Domeniu, relatie, atribut
 - schema relatiei
+- gradul si cardinalitatea relatiei
+- intensia si extensia
+- tabele de date
+- relatii de baza si relatii derivate
+- baza de date relationala
+- cheii utilizate in structura relationala
+- exemple de scheme ale BDR
+- crearea unei BDR si a schemelor aferente
+
+Domeniu
+Reprezinta un ansamblu de valori, caracterizat printr-un nume.
