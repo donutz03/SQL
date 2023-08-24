@@ -65,7 +65,45 @@ Exemplu SQL
 SELECT DISTINCT nume, prenume FROM ANGAJATI
 WHERE salariu > 2000 or nume='Mircea'
 
+Produsul cartezian
+Este o operatie definita pe doua relatii, R1 si R2.
+Pe baza relatiilor R1 si R2 se construieste o noua relatie, R3, a carei schema se obtine prin
+concatenarea schemelor relatiilor R1 si R2 si a carei extensie cuprinde toate combinatiile
+tuplurilor din R1 cu cele din R2.
 
+R1 x R2
+PRDUCT(R1, R2)
+TIMES(R1, R2)
+
+Angajati    
+ID  nume
+1 ion
+2 mihai
+3 anca
+4 sofia
+5 mircea
+
+comenzi 
+nrc data id
+1 1.1.11 1
+2 7.1.11 2
+3 8.1.11 3
+4 8.1.11 2
+5 9.1.11
+
+angajati x comenzi
+id nume nrc data id
+1 ion 1 1.1.11 1
+1 ion 2 7.1.11 2
+1 ion 3 8.1.11 3
+1 ion 4 8.1.11 4
+1 ion 5 9.1.11
+2 mihai 1 1.1.11 1
+2 mihai 2 7.1.11 2
+
+exemplu sql
+SELECT * FROM angajati, comenzi;
+SELECT * FROM ANGAJATI cross join comenzi;
 
 
 
