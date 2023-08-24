@@ -1,1 +1,76 @@
+Operatorii modelului relational
+- din algebra relationala (AR)
+- din calculul relational (CR):
+  orientat pe tuplu
+  orientat pe domeniu
+
+Algebra relationala
+Introdusa de EF Codd ca o colectie de operatori pe relatii in care operatorii descriu tipuri de pre-
+lucrari asupra relatiilor, operanzii sunt relatii, iar rezultatul este, de asemenea, relatie.
+Operatorii de baza:
+- Universali: reuniunea, diferenta, produsul cartezian
+- Specifici: proiectia, selectia si jonctiunea
+- Operatori derivati: intersectia si diviziunea
+
+Proiectia
+Definita asupra unei relatii R, care consta din construirea unei noi relatii P, in care se regasesc
+numai acele atribute din R specificate explicit in cadrul operatiei. 
+Implica efectuarea unor taieturi verticale asupra lui R si care pot avea ca efect aparitia unor
+tupluri duplicate, care se cer a fi eliminate
+Se trece de la o relatie de grad n la o relatie de grad p, mai mic decat cel initial (p<n), adica
+de la un spatiu de n dimensiuni la unul cu mai putine dimensiuni, ceea ce explica si numele de pro-
+iectie.
+
+Proiectia
+Pi Ai, ......, Am (R)
+R[Ai, ..., Am]
+PROJECT(R, Ai, ..., Am)
+
+Nume Varsta Salariu        Varsta    Salariu
+Ion 25 3000                  25       3000
+Mihai 30     2000            30       2000
+Anca 25     3000      =>     25       3000        =>   Varsta  Salariu
+Sofia   30   2000            30       2000              25       3000
+Mircea 30 2000               30       2000              30       2000
+
+Exemplu SQL
+SELECT DISTINCT varsta, salariu FROM angajati;
+
+Selectia
+Reprezinta operatia definita asupra unei relatii R, care consta din construirea unei relatii S,
+cu aceeasi schema ca R si a carei extensie este constituita din acele tupluri din R care satisfac
+conditia mentionata explicit in cadrul operatiei. 
+Selectia: Implica efectuarea de taieturi orizontale asupra relatiei R, adica eliminarea unor 
+tupluri ale relatiei.
+
+Sigmaconditie (R)
+R [conditie]
+RESTRICT (R, conditie)
+
+Nume varsta salariu
+Ion   25  3000
+mihai 30  2000
+anca 25 3000
+sofia  30  2000
+mircea   30   2000
+
+sigma(salariu>2000 or nume=Mircea)
+
+nume varsta salariu
+ion  25  3000
+anca  25  3000
+mircea   30  2000
+
+Exemplu SQL
+SELECT DISTINCT nume, prenume FROM ANGAJATI
+WHERE salariu > 2000 or nume='Mircea'
+
+
+
+
+
+
+
+
+
 
