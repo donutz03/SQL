@@ -143,6 +143,88 @@ daca o realizare a unui nod subordonat trebuie sa fie asociata cu mai multe real
 dului parinte atunci ea trebuie multiplicata (creste redundanta)
 - dau logica si coerenta modelului arborescent
 
+Caracterizarea modelului ierarhic
+- a fost propus de catre IBM si a fost primul util. pt BD
+- str. modelului este graf orientat
+- implementarea modelului se face fizic si conditioneaza performantele BD:
+1. prin pointeri utilizand liste simplu inlantuite, vectori de pointeri, chei primare
+2. secvential, fiecare realizare a unui arbore corespunde unei inregistrari logice dintr-un
+fisier secvential
+Modelul se aplica cu succes in tehnologia constructiilor de masini, dar si in alte domenii.
+
+Limitele modelului ierarhic:
+- nr de ierarhii posibile creste combinatoric cu nr inregistrarilor, in legatura parinte-copil
+- actualizarea datelor e greoaie si consumatoare de resurse de calculator
+- nu se poate realiza legatura de tip M:N
+EX de SGBD ierarhic este IMS = INFORMATION MANAGEMENT SYSTEM realizat de catre IBM
+BD ierarhica = o multime ordonata de realizari ale unui tip arbore
+
+Definirea structurii modelului retea
+Definirea entitatilor se face prin notiunea de tip de inregistrare, care este formata din
+caracteristici (campuri)
+Realizarea (instanta) unui tip de inregistrare este data de ansamblul valorilor pentru cam-
+purile acestuia (inregistrarea).
+Definirea legaturilor dintre entitati se face fizic si conduce la o structura de tip retea,
+reprezentata sub forma unei diagrame numita si schema (conceptuala).
+
+Exemplu de structura de retea
+tip_inreg 1 <->tip_inreg 3...
+
+Caracteristici ale structurii retea
+- un nod poate avea oricati superiori si oricati subordonati
+- pot exista mai multe tip de inregistrare radacina
+- la un subordonat se poate ajunge pe mai multe cai
+- este o extensie a structurii arborescente in care graful nu mai este limitat
+- legaturile in model pot fi 1:1, 1:M, M:N, ciclice
+- pentru exprimarea legaturilor se foloseste conceptul de tip set. Un tip set este format
+dintr-un singur tip de nod proprietar si unul sau mai multe tipuri de nod membre dependente
+de cel proprietar
+- o realizare a tipului set este o colectie de inregistrari care are o realizare proprietar si
+un numar de realizari membre asociate
+
+Operatorii modelului de retea
+Localizarea unui tip set: se identifica o realizare a unui nod proprietar.
+Trecerea de la o inregistrare la alta in cadrul unui set: adaugarea, modificarea, stergerea
+unor membri
+Actualizarea intr-un set: adaugarea, modificarea, stergerea unor membri.
+Actualizarea intr-o retea: adaugarea, modificarea, stergerea unor seturi,
+
+Nota. Operatiile de actualizare (groaie si mari consumatoare de resurse calculator, deoarece
+sunt antrenate intotdeauna inregistrarile dintr-unul sau mai multe seturi).
+Localizarea unei inregistrari pe baza valorii unui camp (cheie).
+
+Restrictiile de integritate ale modelului de retea
+O inregistrare nu poate fi membra a doua realizari ale aceluiasi tip set. Inregistrarea se va
+multiplica. O inregistrare poate sa apartina mai multor tipuri set prin multiplicare. Un tip
+de inregistrare poate fi nod proprietar intr-un set si nod membru in alt set. Un set poate
+avea un singur nod proprietar. Nota. Efectele restrictiilor de integritate sunt: dau logica 
+si coerenta modelului de retea, complica operatia de actualizare, introduce o redundanta con-
+trolata.
+
+Caracteristicile modelului retea
+A fost propus de CODASYL ca solutie pt eliminarea limitelor modelului ierarhic. Permite repre-
+zentarea unor structuri cmoplexe si are aplicabilitate in domenii variate din lumea reala.
+Implementarea modelului se face fizic si conditioneaza performantele BD: prin pointeri struc-
+turati in liste inlantuite de diferite tipuri (owner, prior, next); prin harta de biti (matrice
+cu inregistrari, iar la intersectie sunt legaturile 1-da, 0-nu). Limitele modelului de retea:
+complexitatea modelului il face dificil de implementat; legaturile din model nu sunt intotdea-
+una foarte clare; prelucrarea inregistrarilor se face secvential; actualizarea este greoaie 
+si consumatoare de resurse calculator; reproiectarea este dificila datorita complexitatii 
+ridicate. Exemple de SGBD retea: IDMS = Integrated Databse management system, socrate
+BD retea - o multime oarecare de tipuri de inregistrari structurate pe tipuri set.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
