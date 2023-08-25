@@ -1,5 +1,5 @@
 1. Baza de date este un ansamblu de date:
--organizat, structurat
+-organizat, structurat.
 - accesibil mai multor utilizatori in timp util
 2. In modelul relational pentru baze de date:
 -legaturile dintre tabele se descriu in LDD
