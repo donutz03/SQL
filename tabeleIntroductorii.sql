@@ -5,6 +5,7 @@ create table DEPARTMENTS (
   constraint pk_departments primary key (deptno)
 );
 
+
 create table EMPLOYEES (
   empno       number,
   name        varchar2(50) not null,
