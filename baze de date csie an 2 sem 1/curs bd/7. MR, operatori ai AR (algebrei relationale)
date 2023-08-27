@@ -105,6 +105,121 @@ exemplu sql
 SELECT * FROM angajati, comenzi;
 SELECT * FROM ANGAJATI cross join comenzi;
 
+jonctiune 
+reprezinta operatia definita pe doua relatii, R1 si R2 care consta din construirea unei noi relatii R3, prin concatena-
+rea unor tupluri din R1 cu tupluri din R2
+Se concateneaza acele tupluri din R1 si R2 care satisfac o anumita conditie, specificata explicit in cadrul operatiei.
+Extensia relatiei R3 va contine combinatiile acelor tupluri care satisfac conditia de concatenare.
+
+Tipuri de jonctiuni
+Interna (inner):
+-de egalitate
+-naturala
+-de neegalitate
+Externa (outer):
+- la stanga
+- la dreapta
+- completa
+
+cerc alb/mov: tabel
+Tipuri de jonctiuni:
+Clienti, comenzi, inner join: cercuri albe care se intersecteaza cu intersectia mov
+Clienti, comenzi, left outer join, un cerc mov care se intersecteaza cu unul alb cu intersectia mov
+clienti, comenzi, right outer join, un cerc alb care se intersecteaza cu unul mov, cu intersectia mov
+
+full outer join, doua cercuri mov care se intersecteaza cu intersectia tot mov, clienti si comenzi
+minus: un cerc mov care se intersecteaza cu unul alb cu intersectia alba
+
+jonctiunea de egalitate si naturala
+
+R1 clepsidra rotita 90 grade R2
+JOIN(R1, R2, conditie)
+JOIN (R1, R2, conditie) = RESTRICT (PRODUCT(R1, R2), conditie)
+
+
+jonctiunea de egalitate
+= Operatie definita pe doua relatii, R1 si R2, prin care este construita o noua relatie, R3, a carei schema este obtinuta
+prin reuniunea atributelor din relatiile initiale iar extensia acesteia contine tuplurile obtinute prin concatenarea 
+tuplurilor din R1 cu tuplurile din R2 care au aceleasi valori pentru atributele folosite in conditia de jonctiune.
+
+jonctiunea de egalitate
+angajati
+id_ang nume
+1 ion
+2 mihai 
+3 anca
+4 sofia
+5 mircea
+
+comenzi
+nrc datac id_ang id_cl
+1 1.1.2011 1 1
+2 7.1.2011 2 2
+3 8.1.2011 3 2
+4 8.1.2011 2 1
+5 9.1.2011   1
+
+prin jonctiunea tabelei de angajati cu cea de comenzi se obtine
+id_ang nume nrc datac id_ang id_cl
+1 ion 1 01.01.2011 1 1
+2 mihai 2 07.01.2011 2 2 
+3 anca 3 08.01.2011 3 2
+2 mihai 4 08.01.2011 2 1
+
+exemple sql
+SELECT * FROM angajati a,
+comenzi c where
+a.id_ang=c.id_ang
+SELECT * FROM angajati a join 
+comenzi c on a.id_ang=c.id_ang
+SELECT * FROM angajati a join 
+comenzi c using(id_Ang)
+
+jonctiunea naturala
+presupune existenta unor atribute avand aceeasi denumire in ambele relatii
+
+SELECT * FROM angajati a natural join comenzi c
+
+Jonctiunea externa
+Operatie prin care din doua relatii, R1 si R2, se obtine o noua relatie, R3, prin jonctiunea relatiilor R1 si R2, relatie
+la care sunt adaugate si tuplurile din R1 si R2 care nu au participat la jonctiune.
+
+Aceste tupluri sunt completate in relatia R3 cu valori NULL pentru atributele relatiei corespondente (R2, respectiv R1).
+
+
+Notatii
+R1 clepsidra intoarsa 90 de grade cu linie orizontala sub
+EXT-JOIN(R1, R2)
+
+jonctiunea la stanga
+
+SELECT * FROM angajati a, comenzi c where a.id_ang=c.id_ang(+)
+SELECT * FROM angajati a left join comenzi c on a.id_ang=c.id_ang
+SELECT * FROM angajati a left join comenzi c using(id_ang)
+ID_ANG NUME NRC DATAC ID_ANG ID_CL
+1 Ion 1 01.01.2011 1 1
+2 Mihai 2 07.01.2011 2 2
+3 Anca 3 08.01.2011 3 2
+2 Mihai 4 08.01.2011 2 1
+5 Mircea
+4 Sofia
+
+jonctiunea la dreapta
+SELECT * FROM angajati a, comenzi c where a.id_ang(+)=c.id_ang
+SELECT * FROM angajati a right join comenzi c on a.id_ang=c.id_ang
+SELECT * FROM angajati a right join comenzi c using(id_ang)
+ID_ANG NUME NRC DATAC ID_ANG ID_CL
+1 Ion 1 01.01.2011 1 1
+2 Mihai 4 08.01.2011 2 1
+2 Mihai 2 07.01.2011 2 2
+3 Anca 3 08.01.2011 3 2
+      5 09.01.2011    1
+
+
+
+
+
+
 
 
 
