@@ -215,6 +215,51 @@ ID_ANG NUME NRC DATAC ID_ANG ID_CL
 3 Anca 3 08.01.2011 3 2
       5 09.01.2011    1
 
+Jonctiunea completa
+SELECT * FROM angajati a, comenzi c where a.id_ang(+)=c.id_ang union
+SELECT * FROM angajati a, comenzi c where a.id_ang=c.id_ang(+);
+SELECT * FROM angajati a full join comenzi c on a.id_ang=c.id_ang;
+SELECT * FROM angajati a full join comenzi c using(id_ang);
+
+
+Reuniunea exemplu
+select * from angajati
+select * from clienti
+
+select * from clienti t union select * from angajati;
+select nume from clienti t union select nume from angajati;
+
+Diferenta 
+select * from clienti
+select * from comenzi t
+
+DA: select t.id_cl from clienti t minus select c.id_cl from comenzi c
+NU: select * from clienti t minus select * from comenzi c
+
+Intersectia
+select * from clienti
+select * from comenzi t
+
+select t.id_cl from clienti t intersect select c.id_cl from comenzi c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
