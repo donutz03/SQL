@@ -8,3 +8,5 @@ SELECT ALL | DISTINCT {nume_tabela* | expr[sinonim], expr[sinonim], ...} FROM nu
 [ORDER BY { expr | numar-pozitie} [ASC | DESC]
 {expr | numar-pozitie} [ASC | DESC ], ...
 [FOR UPDATE OF nume-col, nume-col, ... [NOWAIT] ];
+
+slide 7
