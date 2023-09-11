@@ -6,7 +6,6 @@ CREATE TABLE Orders (
   PRIMARY KEY (OrderID),
   FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
 );
-
 //sqlsrv/orc/msa
 
 CREATE TABLE Orders (
